@@ -26,3 +26,25 @@ public:
 
 
 
+## 2021-1-13:  80. Remove Duplicates from Sorted Array II
+
+Given a sorted array *nums*, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that duplicates appeared at most *twice* and return the new length.
+
+Do not allocate extra space for another array; you must do this by **modifying the input array [in-place](https://en.wikipedia.org/wiki/In-place_algorithm)** with O(1) extra memory.
+
+```c++
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        if (nums.size() <= 2) return nums.size();
+
+        int index = 2;
+        for (int i = 2; i < nums.size(); i ++){
+            if (nums[i]!=nums[index -2])
+                nums[index++] = nums[i];
+        }
+        return index;
+    }
+};
+```
+
